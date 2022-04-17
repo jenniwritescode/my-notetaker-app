@@ -5,7 +5,7 @@ const router = require('express').Router();
 const storeNotes = require('../public/assets/js/storeNotes');
 
 // request the existing notes
-router.get('/notes', (req, res) => {
+router.get('/api/notes', (req, res) => {
     storeNotes
         .getNotes()
         .then(notes => {
@@ -17,7 +17,7 @@ router.get('/notes', (req, res) => {
 })
 
 // post note
-router.post('/notes', (req, res) => {
+router.post('/api/notes', (req, res) => {
     console.log(req.body)
     store
         .addNote(req.body)
