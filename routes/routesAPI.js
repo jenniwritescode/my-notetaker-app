@@ -31,7 +31,7 @@ router.post('/api/notes', (req, res) => {
 
 
 // delete note
-router.delete('/notes/:id', (req, res) => {
+router.delete('/api/notes/:id', (req, res) => {
     store
         .removeNote(req.params.id)
         .then(() => res.json({ ok: true }))
