@@ -2,11 +2,11 @@
 
 const router = require('express').Router();
 
-const storeNotes = require('../public/assets/js/storeNotes');
+const StoreNotes = require('../public/assets/js/storeNotes');
 
 // request the existing notes
 router.get('/api/notes', (req, res) => {
-    storeNotes
+    StoreNotes
         .getNotes()
         .then(notes => {
             res.json(notes)
