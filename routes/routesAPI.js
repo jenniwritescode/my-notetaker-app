@@ -2,10 +2,10 @@
 
 const router = require('express').Router();
 
-const StoreNotes = require('../public/assets/js/storeNotes');
+const StoreNotes = require('../db/storeNotes');
 
 // request the existing notes
-router.get('/api/notes', (req, res) => {
+router.get('/notes', (req, res) => {
     StoreNotes
         .getNotes()
         .then(notes => {
@@ -17,9 +17,9 @@ router.get('/api/notes', (req, res) => {
 })
 
 // post note
-router.post('/api/notes', (req, res) => {
+router.post('/notes', (req, res) => {
     console.log(req.body)
-    store
+    StoreNotes
         .addNote(req.body)
         .then(note => {
             res.json(note)
@@ -32,7 +32,7 @@ router.post('/api/notes', (req, res) => {
 
 // delete note
 router.delete('/api/notes/:id', (req, res) => {
-    store
+    StoreNotes
         .removeNote(req.params.id)
         .then(() => res.json({ ok: true }))
         .catch(err => res.status(500).json(err))
