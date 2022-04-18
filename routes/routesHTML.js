@@ -1,5 +1,3 @@
-// html routes go here
-
 const path = require('path');
 
 const router = require('express').Router();

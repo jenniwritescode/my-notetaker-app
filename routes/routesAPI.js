@@ -1,5 +1,3 @@
-// API routes go here
-
 const router = require('express').Router();
 
 const StoreNotes = require('../db/storeNotes');
@@ -29,9 +27,8 @@ router.post('/notes', (req, res) => {
         })
 })
 
-
 // delete note
-router.delete('/api/notes/:id', (req, res) => {
+router.delete('/notes/:id', (req, res) => {
     StoreNotes
         .removeNote(req.params.id)
         .then(() => res.json({ ok: true }))
